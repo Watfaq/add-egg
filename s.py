@@ -61,10 +61,10 @@ Add an egg for your lunch!
 
 
 def send_mail(text):
-    api_host = 'https://api.mailgun.net/v3/no-reply.alipay-inc.xyz/messages'
+    api_host = 'https://api.mailgun.net/v3/noreply.watfaq.com/messages'
     token = MAILGUN_KEY
 
-    sender = 'NoReply <no-reply@no-reply.alipay-inc.xyz>'
+    sender = 'NoReply <no-reply@noreply.watfaq.com>'
     subject = u'加个蛋'
     to = 'Jiatai <liujiatai@gmail.com>'
     cc = 'Yuwei <akabyw@gmail.com>'
@@ -81,5 +81,4 @@ def send_mail(text):
 
 
 if __name__ == '__main__':
-    # sched.start()
-    calc_lose_money()
+    sched.start()
