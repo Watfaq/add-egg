@@ -1,7 +1,11 @@
 #encoding: utf-8
+import os
+
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 import requests
+
+MAILGUN_KEY = os.environ.get('MAILGUN_KEY')
 
 
 sched = BlockingScheduler()
@@ -58,7 +62,7 @@ Add an egg for your lunch!
 
 def send_mail(text):
     api_host = 'https://api.mailgun.net/v3/no-reply.alipay-inc.xyz/messages'
-    token = 'key-40f226b6bc5d1f8065adb7177bbe4056'
+    token = MAILGUN_KEY
 
     sender = 'NoReply <no-reply@no-reply.alipay-inc.xyz>'
     subject = u'加个蛋'
