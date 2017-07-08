@@ -16,7 +16,7 @@ def add_egg():
     print(send_mail(get_text(get_price())))
 
 
-@sched.scheduled_job('calc_lost_money', 'interval', minutes=1, id='calc_lost_money')
+@sched.scheduled_job('interval', minutes=1)
 def calc_lost_money():
     price = get_price()
     sell = price['sell']
