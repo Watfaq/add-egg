@@ -20,7 +20,7 @@ def add_egg():
 def calc_lost_money():
     price = get_price()
     sell = price['sell']
-    lost = _calc_lose_money(float(sell))
+    lost = _calc_lost_money(float(sell))
 
     print 'Current lost %s...' % lost
 
@@ -33,7 +33,7 @@ def calc_lost_money():
         send_mail('Win 5w!!!!!!!!')
 
 
-def _calc_lose_money(x):
+def _calc_lost_money(x):
     return ((16.72 - x) / 16.72 + 0.0002) * 40000
 
 
