@@ -1,0 +1,1 @@
+clock: python s.py
