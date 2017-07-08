@@ -12,6 +12,27 @@ def add_egg():
     print(send_mail(get_text(get_price())))
 
 
+@sched.scheduled_job('calc_lost_money', 'interval', minutes=1, id='calc_lost_money')
+def calc_lost_money():
+    price = get_price()
+    sell = price['sell']
+    lost = _calc_lose_money(float(sell))
+
+    print 'Current lost %s...' % lost
+
+    if lost > 10000:
+        send_mail('Lost > %s' % lost)
+
+    if lost < -50000:
+        send_mail('Win 5w!!!!!!!!')
+        send_mail('Win 5w!!!!!!!!')
+        send_mail('Win 5w!!!!!!!!')
+
+
+def _calc_lose_money(x):
+    return ((16.72 - x) / 16.72 + 0.0002) * 40000
+
+
 def get_price():
     r = requests.get('https://yunbi.com/api/v2/tickers').json()
     eos = r['eoscny']
@@ -39,7 +60,7 @@ def send_mail(text):
     api_host = 'https://api.mailgun.net/v3/no-reply.alipay-inc.xyz/messages'
     token = 'key-40f226b6bc5d1f8065adb7177bbe4056'
 
-    sender = 'No Reply <no-reply@no-reply.alipay-inc.xyz>'
+    sender = 'NoReply <no-reply@no-reply.alipay-inc.xyz>'
     subject = u'加个蛋'
     to = 'Jiatai <liujiatai@gmail.com>'
     cc = 'Yuwei <akabyw@gmail.com>'
@@ -56,4 +77,5 @@ def send_mail(text):
 
 
 if __name__ == '__main__':
-    sched.start()
+    # sched.start()
+    calc_lose_money()
