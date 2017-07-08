@@ -36,7 +36,7 @@ Add an egg for your lunch!
 
 
 def send_mail(text):
-    api_host = 'https://api.mailgun.net/v3/no-reply.alipay-inc.xyz'
+    api_host = 'https://api.mailgun.net/v3/no-reply.alipay-inc.xyz/messages'
     token = 'key-40f226b6bc5d1f8065adb7177bbe4056'
 
     sender = 'No Reply <no-reply@no-reply.alipay-inc.xyz>'
