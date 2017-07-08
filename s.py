@@ -22,7 +22,7 @@ def calc_lost_money():
     sell = price['sell']
     lost = _calc_lost_money(float(sell))
 
-    print 'Current lost %s...' % lost
+    print 'Current lost %s, current sell price %s' % (lost, sell)
 
     if lost > 10000:
         send_mail('Lost > %s' % lost)
