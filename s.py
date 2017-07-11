@@ -24,13 +24,13 @@ def calc_lost_money():
 
     print 'Current lost %s, current sell price %s' % (lost, sell)
 
-    if lost > 10000:
+    if lost > 30000:
         send_mail('Lost > %s' % lost)
 
-    if lost < -50000:
-        send_mail('Win 5w!!!!!!!!')
-        send_mail('Win 5w!!!!!!!!')
-        send_mail('Win 5w!!!!!!!!')
+    if lost < -5000:
+        send_mail('Win 5k!!!!!!!!')
+        send_mail('Win 5k!!!!!!!!')
+        send_mail('Win 5k!!!!!!!!')
 
 
 def _calc_lost_money(x):
