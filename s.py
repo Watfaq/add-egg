@@ -1,4 +1,4 @@
-#encoding: utf-8
+# encoding: utf-8
 import os
 
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -44,6 +44,9 @@ def get_price():
 
 
 def get_text(price):
+    kwargs = price.copy()
+    kwargs['lost'] = _calc_lost_money(price['sell'])
+
     return '''
 Cool!
 
@@ -53,11 +56,12 @@ Eos Sumary:
     Low: {low},
     High: {high},
     Last: {last},
-    Vol: {vol}
+    Vol: {vol},
+    Lost: {lost}
 
 Add an egg for your lunch!
 
-'''.format(**price)
+'''.format(**kwargs)
 
 
 def send_mail(text):
@@ -71,6 +75,7 @@ def send_mail(text):
     text = text
 
     r = requests.post(api_host, auth=('api', token), data={
+        'subject': subject,
         'from': sender,
         'to': to,
         'cc': cc,
