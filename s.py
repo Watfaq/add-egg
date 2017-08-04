@@ -22,7 +22,7 @@ def calc_lost_money():
     sell = price['sell']
     lost = _calc_lost_money(float(sell))
 
-    print 'Current lost %s, current sell price %s' % (lost, sell)
+    print('Current lost %s, current sell price %s' % (lost, sell))
 
     if lost > 30000:
         send_mail('Lost > %s' % lost)
@@ -45,7 +45,7 @@ def get_price():
 
 def get_text(price):
     kwargs = price.copy()
-    kwargs['lost'] = _calc_lost_money(price['sell'])
+    kwargs['lost'] = _calc_lost_money(float(price['sell']))
 
     return '''
 Cool!
