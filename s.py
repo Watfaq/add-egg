@@ -34,7 +34,7 @@ def calc_lost_money():
 
 
 def _calc_lost_money(x):
-    return ((16.72 - x) / 16.72 + 0.0002) * 40000
+    return ((16.72 - x) / 16.72 + 0.0002) * 50000
 
 
 def get_price():
