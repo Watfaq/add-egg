@@ -70,7 +70,7 @@ def send_mail(text):
 
     sender = 'NoReply <no-reply@noreply.watfaq.com>'
     subject = u'加个蛋'
-    to = 'Jiatai <liujiatai@gmail.com>'
+    to = 'Daniel <cndaniel@me.com>'
     cc = 'Yuwei <akabyw@gmail.com>'
     text = text
 
