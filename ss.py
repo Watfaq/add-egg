@@ -1,6 +1,6 @@
 import os
 import json
-import BaseHTTPServer
+import http.server as BaseHTTPServer
 import requests
 
 KRAKEN_API = 'https://api.kraken.com/0/public/Ticker'
