@@ -36,5 +36,5 @@ class IndexHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
-    httpd = server_class(('', os.environ.get('PORT')), IndexHandler)
+    httpd = server_class(('', int(os.environ.get('PORT'))), IndexHandler)
     httpd.serve_forever()
