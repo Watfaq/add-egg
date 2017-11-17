@@ -31,7 +31,7 @@ class IndexHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         s.send_response(200)
         s.send_header('Content-Type', 'application/json')
         s.end_headers()
-        s.wfile(json.dumps(get_eos_to_usd()))
+        s.wfile.write(json.dumps(get_eos_to_usd()))
 
 
 if __name__ == '__main__':
